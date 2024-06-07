@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+
+    <record id="branch_view" model="ir.ui.view" >
+      <field name="name">branch_view_list</field>
+      <field name="model">branch.object</field>
+      <field name="arch" type="xml">
+       <form string="temp">
+        <sheet>
+           <group>
+             <group string="branch data">  
+               <field name="name" required="1"/>
+               <field name="branch_phone_number"/>
+             </group>
+             <group string="" >       
+                 
+             </group>
+           </group>
+        </sheet>
+       </form> 
+      </field>
+    </record>
+
+    <record  id="branch_list" model="ir.actions.act_window">
+      <field name="name">branch_list</field>
+      <field name="res_model">branch.object</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class ="o_view_nocontent_smilling_face">
+         add one
+        </p>
+      </field>
+    </record>
+
+
+
+
+
+
+
+
+    <menuitem name="branch_list" id="branch_list_menu" parent="main_menu" sequence="20" action="branch_list"/>
+  </data>
+</odoo>

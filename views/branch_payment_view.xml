@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+
+    <record id="branch_payment_reports_view" model="ir.ui.view" >
+      <field name="name">branch_payment_view_list</field>
+      <field name="model">branch_payment.object</field>
+      <field name="arch" type="xml">
+       <form string="temp">
+        <sheet>
+           <group>
+             <group string="payment details">  
+               <field name="name" string="Description" required="1"/>
+               <field name="amount" required="1"/>
+               <field name="time" readonly="1"/>
+             </group>
+             <group string="" >       
+                 
+             </group>
+           </group>
+        </sheet>
+       </form> 
+      </field>
+    </record>
+
+    <record  id="branch_payment_reports_list" model="ir.actions.act_window">
+      <field name="name">branch_payment_list</field>
+      <field name="res_model">branch_payment.object</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class ="o_view_nocontent_smilling_face">
+         add one
+        </p>
+      </field>
+    </record>
+
+    <menuitem name="payments" id="branch_payment_menu" parent="main_menu" sequence="20" action="branch_payment_reports_list"/>
+  </data>
+</odoo>

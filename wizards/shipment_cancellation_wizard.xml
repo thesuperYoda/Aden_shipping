@@ -1,0 +1,31 @@
+
+<!--
+<odoo>
+   <record id = "shipment_cancellation_view_form" model="ir.ui.view">
+      <field name="name">shipment_cancellation_form</field>
+      <field name="model">shipment.cancellation</field>
+      <field name="arch" type="xml">
+       <form >
+        <group>
+           <field name="shipment_id"/> 
+           <field name="cancellation_reason"/> 
+        </group>
+        <footer>
+           <botton string="confirm" special="object" name="action_confirm" class="btn-primary"/>
+           <botton string="discare" special="cancel" class="btn-secodary"/>
+        </footer>
+       </form> 
+      </field>
+    </record>
+
+    <record  id="change_state_wizard_action" model="ir.actions.act_window">
+      <field name="name">Change_state</field>
+      <field name="res_model">shipment.cancellation</field>
+      <field name="target">new</field>
+    </record>
+
+
+
+   
+   </record>
+</odoo>-->

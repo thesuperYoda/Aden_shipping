@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+
+    <record id="passenger_object_view" model="ir.ui.view" >
+      <field name="name">passenger_object_view_list</field>
+      <field name="model">passenger.object</field>
+      <field name="arch" type="xml">
+       <form string="temp">
+        <sheet>
+           <group>
+             <group string="passenger data">  
+               <field name="name"/>
+               <field name="passenger_number"/>
+               <field name="passenger_delivery_place" required="1"/> 
+             </group>
+             <group string="rescipient data" >       
+                 <field name="passenger_pickup_datetime" required="1" readonly="1"/>         
+                 <field name="trip_cost" required="1"/>  
+                 <field name="trip_driver" />    
+                 
+             </group>
+           </group>
+        </sheet>
+       </form> 
+      </field>
+    </record>
+
+    <record  id="passenger_list" model="ir.actions.act_window">
+      <field name="name">passenger_list</field>
+      <field name="res_model">passenger.object</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class ="o_view_nocontent_smilling_face">
+         add one
+        </p>
+      </field>
+    </record>
+
+
+
+
+
+
+
+
+    <menuitem name="passenger_list" id="passenger_list_menu" parent="main_menu" sequence="10" action="passenger_list"/>
+  </data>
+</odoo>

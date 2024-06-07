@@ -1,0 +1,13 @@
+<odoo>
+    <record id="users_view_form_inherit" model="ir.ui.view">
+      <field name="name">users.view_form</field>
+      <field name="model">res.users</field>
+      <field name="inherit_id" ref="base.view_users_form"/>
+      <field name="arch" type="xml">
+        <field name= "name" position="after">
+             <field name = "x_branch_id" placeholder="select branch"/>
+        </field>
+      </field>
+    </record>
+</odoo>
+

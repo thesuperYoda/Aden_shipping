@@ -1,0 +1,109 @@
+<odoo>
+  <data>
+
+    <record id="sipment_object_view" model="ir.ui.view" >
+      <field name="name">sipment_object_view_list</field>
+      <field name="model">shipping.object</field>
+      <field name="arch" type="xml">
+       <form string="temp">
+        <sheet>
+          <header>
+            <button name ="action_draft" type="object" string="Save" 
+                  invisible ="state!='draft'"/>
+            <button name ="action_ready_to_be_shiped" type="object" string="shipped"
+                  invisible ="state != 'ready_to_be_shiped'"/>
+            <button name ="action_with_driver" type="object" string="stored"
+                  invisible ="state != 'with_driver'"/>
+            <button name ="action_ready_to_be_picked" type="object" string="deliverd"
+                  invisible ="state != 'ready_to_be_picked'"/>
+            <button name ="action_canceled" type="object" string="Cancel"
+                  invisible ="state != 'ready_to_be_shiped'"/> 
+
+
+            <field name="state" widget="statusbar"/>      
+                 
+          </header>
+          <div class="oe_title">
+            <lable form="shipment_id"/>
+               <h1>
+
+
+                   <field name="id"  readonly="1" string="ID"/>
+
+               </h1>           
+          </div>
+           <group>
+             <group string="sender data">  
+               <field name="shipment_sender_name" readonly="state!='draft'"/>
+               <field name="shipment_sender_number" readonly="state!='draft'"/>
+
+
+             </group>
+             <group string="rescipient data" >
+                 <field name="shipment_recipient_name" required="1" readonly="state!='draft'"/>                 
+                 <field name="shipment_recipient_number" required="1" readonly="state!='draft'"/>         
+
+             </group>
+             <group string="pakage data">  
+                 <field name="shipment_pickup_branch" />
+
+                 <field name="shipment_pickup_Time" readonly="1"/>
+                 <field name="shipment_number_of_pieces" readonly="state!='draft'"/>  
+                 <field name="shipment_color" readonly="state!='draft'"/>
+                 <field name="shipment_description" readonly="state!='draft'"/>                 
+               
+             </group>
+             <group string="important data">         
+                 
+
+                 <field name="shipment_cost" required="1" readonly="state!='draft'"/>
+                 <field name="shipment_payment_method" required="1" readonly="state!='draft'"/>
+                 
+                 <field name="shipment_delivery_date" invisible ="state=='ready_to_be_shiped' or state=='draft'" readonly="1"/>
+                 <field name="drivers_id" invisible ="state=='draft'" readonly="state!='ready_to_be_shiped'"/>
+                 <field name="shipment_delivery_brach" required="1" readonly="state!='draft'"/>
+                 <field name="shipment_secondary_delivery_destenation"  readonly="state!='draft'"/>                                   
+                 
+
+              </group>
+            
+           </group>
+        </sheet>
+       </form> 
+      </field>
+    </record>
+
+    <record  id="shipment_list" model="ir.actions.act_window">
+      <field name="name">shipment_list</field>
+      <field name="res_model">shipping.object</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class ="o_view_nocontent_smilling_face">
+         add one
+        </p>
+      </field>
+    </record>
+   <!--
+    <record  id="shipment_cancellation.server.action" model="ir.actions.server">
+      <field name="name">cancellation</field>
+      <field name="model_id" ref="model_shipments_object"/>
+      <field name="binding_model_id" ref="model_shipments_object"/>
+      <field name="state">code</field>
+      <field name="code">
+         action = records.action_open_shipment_cancellation_wizard()
+      </field>
+    </record>-->
+
+
+
+
+
+
+
+
+    <menuitem name="shipment_list" id="shipment_list_menu" parent="main_menu" sequence="2" action="shipment_list"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+
+    <record id="drivers_object_view" model="ir.ui.view" >
+      <field name="name">drivers_object_view_list</field>
+      <field name="model">drivers.object</field>
+      <field name="arch" type="xml">
+       <form string="temp">
+        <sheet>
+           <group>
+             <group string="drivers data">  
+               <field name="name"/>
+               <field name="driver_number"/>
+             </group>
+             <group string="" >       
+                 
+             </group>
+           </group>
+        </sheet>
+       </form> 
+      </field>
+    </record>
+
+    <record  id="drivers_list" model="ir.actions.act_window">
+      <field name="name">drivers_list</field>
+      <field name="res_model">drivers.object</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class ="o_view_nocontent_smilling_face">
+         add one
+        </p>
+      </field>
+    </record>
+
+
+
+
+
+
+
+
+    <menuitem name="drivers_list" id="drivers_list_menu" parent="main_menu" sequence="20" action="drivers_list"/>
+  </data>
+</odoo>

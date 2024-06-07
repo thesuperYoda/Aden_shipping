@@ -1,0 +1,11 @@
+<odoo>
+  <data>
+  
+
+    <menuitem  id="main_menu" name="Aden_shipping" sequence="2" />
+
+
+
+  
+  </data>
+</odoo>
